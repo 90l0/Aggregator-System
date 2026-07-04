@@ -1,0 +1,25 @@
+2026-04-15 19:30:36,259 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-15 19:30:36,261 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-04-15 19:30:36,263 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-04-15 19:30:36,266 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("agents")
+2026-04-15 19:30:36,267 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-04-15 19:30:36,270 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales")
+2026-04-15 19:30:36,271 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-04-15 19:30:36,275 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("activations")
+2026-04-15 19:30:36,276 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-04-15 19:30:36,278 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("fraud_alerts")
+2026-04-15 19:30:36,279 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-04-15 19:30:36,280 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("audit_logs")
+2026-04-15 19:30:36,281 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-04-15 19:30:36,286 INFO sqlalchemy.engine.Engine SELECT users.email 
+FROM users 
+WHERE users.email = ?
+2026-04-15 19:30:36,287 INFO sqlalchemy.engine.Engine [generated in 0.00081s] ('admin@lyca.com',)
+2026-04-15 19:30:36,289 INFO sqlalchemy.engine.Engine COMMIT
+2026-04-15 19:30:36,832 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-15 19:30:36,835 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.password_hash, users.role, users.created_at, users.updated_at, users.is_active 
+FROM users 
+WHERE users.email = ?
+2026-04-15 19:30:36,836 INFO sqlalchemy.engine.Engine [generated in 0.00129s] ('admin@lyca.com',)
+INFO:     127.0.0.1:52490 - "POST /auth/login HTTP/1.1" 200 OK
+2026-04-15 19:30:36,853 INFO sqlalchemy.engine.Engine ROLLBACK
