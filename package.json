@@ -1,0 +1,25 @@
+{
+  "name": "aims-workers-backend",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "build": "esbuild src/index.ts --bundle --outdir=dist --platform=browser --external:wasm",
+    "type-check": "tsc --noEmit",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240620.0",
+    "@types/node": "^20.10.0",
+    "esbuild": "^0.19.10",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.26.0"
+  },
+  "dependencies": {
+    "hono": "^3.11.7",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.1"
+  }
+}

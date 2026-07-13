@@ -1,0 +1,30 @@
+# Cloudflare & Wrangler
+.wrangler/
+dist/
+/node_modules
+npm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.production.local
+
+# Build outputs
+build/
+*.tsbuildinfo
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
