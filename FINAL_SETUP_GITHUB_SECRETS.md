@@ -61,18 +61,13 @@ Go to: https://github.com/90l0/Aggregator-System/settings/secrets/actions
 ---
 
 ### 4. SECRET_KEY
-**Value:** `417b7ac5d1a138e27e1810b52378cece994d0e8efa3a97f805087d3f5d0d4349`
+**Value:** Generate a new random value, for example with:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
 
 **Name:** `SECRET_KEY`
-
----
-
-### 5. DATABASE_URL (optional)
-**Value:** (leave empty for now)
-
-**Name:** `DATABASE_URL`
-
-(For PostgreSQL if you add it later)
 
 ---
 
@@ -166,7 +161,6 @@ curl https://aims-aggregator.aims-aggregator.workers.dev/api/v1/status
 | CLOUDFLARE_ACCOUNT_ID | Identifies your account | GitHub Actions |
 | REACT_APP_API_URL | Where frontend finds backend | React App |
 | SECRET_KEY | JWT token signing | Workers/Backend |
-| DATABASE_URL | Database connection | Backend |
 
 ---
 

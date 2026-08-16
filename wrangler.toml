@@ -20,7 +20,7 @@ preview_id = "4761902200564fa895e6ce2517345364"
 # Environment variables for production
 [env.production]
 name = "aims-aggregator-prod"
-vars = { ENVIRONMENT = "production", SECRET_KEY = "417b7ac5d1a138e27e1810b52378cece994d0e8efa3a97f805087d3f5d0d4349", API_BASE_URL = "https://aims-aggregator.aims-aggregator.workers.dev" }
+vars = { ENVIRONMENT = "production", API_BASE_URL = "https://aims-aggregator.aims-aggregator.workers.dev" }
 
 [env.staging]
 name = "aims-aggregator-staging"

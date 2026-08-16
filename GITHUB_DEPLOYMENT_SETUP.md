@@ -28,8 +28,8 @@ git commit -m "feat: Configure Cloudflare deployment
 
 Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
 
-# Push to main branch
-git push origin main
+# Push to master branch
+git push origin master
 ```
 
 ---
@@ -58,10 +58,7 @@ Go to your repository:
 - Value: `https://aims-aggregator.aims-aggregator.workers.dev`
 
 **SECRET_KEY**
-- Value: `417b7ac5d1a138e27e1810b52378cece994d0e8efa3a97f805087d3f5d0d4349`
-
-**DATABASE_URL** (optional - for backend)
-- Value: Leave empty or set PostgreSQL URL if you have one
+- Value: Generate a fresh 32-byte random hex value
 
 ---
 
@@ -75,12 +72,12 @@ name: Deploy to Cloudflare
 on:
   push:
     branches:
-      - main
+      - master
       - production
 ```
 
 This means deployment happens automatically on:
-- Push to `main` branch
+- Push to `master` branch
 - Push to `production` branch
 
 ---
@@ -153,7 +150,7 @@ wrangler pages deploy build
 After setup, just:
 1. Make code changes
 2. Commit: `git commit -m "your message"`
-3. Push: `git push origin main`
+3. Push: `git push origin master`
 4. GitHub Actions automatically deploys!
 
 No manual deployment needed.

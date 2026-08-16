@@ -32,7 +32,7 @@ Your frontend React app is ready for Cloudflare Pages. To complete:
 
 Go to: https://github.com/90l0/Aggregator-System/settings/secrets/actions
 
-Add these 5 secrets:
+Add these 4 secrets:
 
 **Secret 1: CLOUDFLARE_API_TOKEN**
 1. Visit: https://dash.cloudflare.com/profile/api-tokens
@@ -51,10 +51,7 @@ Add these 5 secrets:
 - Value: `https://aims-aggregator.aims-aggregator.workers.dev`
 
 **Secret 4: SECRET_KEY**
-- Value: `417b7ac5d1a138e27e1810b52378cece994d0e8efa3a97f805087d3f5d0d4349`
-
-**Secret 5: DATABASE_URL** (optional)
-- Value: (leave empty)
+- Value: Generate a fresh 32-byte random hex value
 
 ### 🎯 TASK 2: Connect Cloudflare Pages (5 minutes)
 
@@ -142,7 +139,7 @@ Health:    https://aims-aggregator.aims-aggregator.workers.dev/health
 - [x] Deployment documentation created
 
 ### In Progress ⏳
-- [ ] GitHub Secrets added (5 values)
+- [ ] GitHub Secrets added (4 values)
 - [ ] Cloudflare Pages connected
 - [ ] GitHub Actions deployment running
 - [ ] Frontend deployed to Pages

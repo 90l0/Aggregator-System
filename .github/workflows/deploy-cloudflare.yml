@@ -3,11 +3,11 @@ name: Deploy to Cloudflare
 on:
   push:
     branches:
-      - main
+      - master
       - production
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   deploy-workers:
@@ -38,10 +38,8 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           secrets: |
             SECRET_KEY
-            DATABASE_URL
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
   deploy-pages:
     name: Deploy Pages (Frontend)
@@ -83,5 +81,5 @@ jobs:
       - name: Deployment Summary
         run: |
           echo "✅ Deployment Complete!"
-          echo "Backend: https://aims-aggregator.workers.dev"
+          echo "Backend: https://aims-aggregator.aims-aggregator.workers.dev"
           echo "Frontend: https://aims-aggregator.pages.dev"

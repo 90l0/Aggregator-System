@@ -65,7 +65,7 @@ Your backend is now live at: `https://aims-aggregator.{account}.workers.dev`
 # Push to GitHub
 git add .
 git commit -m "Setup Cloudflare deployment"
-git push origin main
+git push origin master
 ```
 
 Then:

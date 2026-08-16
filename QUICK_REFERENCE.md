@@ -20,8 +20,7 @@ Link: https://github.com/90l0/Aggregator-System/settings/secrets/actions
 | `CLOUDFLARE_API_TOKEN` | [See instructions below] |
 | `CLOUDFLARE_ACCOUNT_ID` | `757aeca7c03d238cf5897c0deb39b9cd` |
 | `REACT_APP_API_URL` | `https://aims-aggregator.aims-aggregator.workers.dev` |
-| `SECRET_KEY` | `417b7ac5d1a138e27e1810b52378cece994d0e8efa3a97f805087d3f5d0d4349` |
-| `DATABASE_URL` | (leave empty) |
+| `SECRET_KEY` | Generate a fresh 32-byte random hex value |
 
 **How to get CLOUDFLARE_API_TOKEN:**
 1. Go: https://dash.cloudflare.com/profile/api-tokens

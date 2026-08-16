@@ -1,12 +1,10 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { v4 as uuidv4 } from 'uuid';
 
 type Env = {
   DB: D1Database;
   CACHE: KVNamespace;
   SECRET_KEY: string;
-  DATABASE_URL: string;
 };
 
 const app = new Hono<{ Bindings: Env }>();
@@ -23,6 +21,19 @@ app.get('/health', (c) => {
   return c.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
+  });
+});
+
+// Root endpoint
+app.get('/', (c) => {
+  return c.json({
+    message: 'AIMS Backend is running',
+    endpoints: {
+      health: '/health',
+      api: '/api',
+      status: '/api/v1/status',
+      analytics: '/api/v1/analytics',
+    },
   });
 });
 
@@ -56,7 +67,7 @@ app.get('/api/v1/analytics', async (c) => {
     }
 
     const data = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       timestamp: new Date().toISOString(),
       active_sessions: 42,
       total_events: 1024,
