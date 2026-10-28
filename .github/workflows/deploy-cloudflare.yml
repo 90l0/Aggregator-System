@@ -32,14 +32,13 @@ jobs:
         run: npm run type-check
 
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          secrets: |
-            SECRET_KEY
         env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        run: |
+          npx wrangler deploy --config wrangler.worker.toml
+          printf '%s' "$SECRET_KEY" | npx wrangler secret put SECRET_KEY --config wrangler.worker.toml --name aims-aggregator
 
   deploy-pages:
     name: Deploy Pages (Frontend)
@@ -64,12 +63,11 @@ jobs:
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: aims-aggregator
-          directory: frontend/build
+          command: pages deploy frontend/build --project-name=aims-aggregator
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
   notify:
