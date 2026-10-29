@@ -1,0 +1,20 @@
+name = "aims-aggregator"
+account_id = "757aeca7c03d238cf5897c0deb39b9cd"
+workers_dev = true
+main = "src/index.ts"
+compatibility_date = "2024-01-15"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aims-db"
+database_id = "feaedfb7-52ed-463d-996a-3c9466bcc7ac"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "b1482d1ae6e94efb8417eb8838ddb769"
+preview_id = "4761902200564fa895e6ce2517345364"
+
+[vars]
+ENVIRONMENT = "production"
+API_BASE_URL = "https://aims-aggregator.aims-aggregator.workers.dev"
+REACT_APP_API_URL = "https://aims-aggregator.aims-aggregator.workers.dev"
