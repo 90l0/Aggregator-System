@@ -72,7 +72,7 @@ jobs:
         working-directory: ./frontend
         run: npm run build
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          REACT_APP_API_URL: https://aims-aggregator.aims-aggregator.workers.dev
 
       - name: Check Pages output and deployment secrets
         if: github.event_name == 'push'
@@ -85,6 +85,10 @@ jobs:
           for file in index.html robots.txt sitemap.xml; do
             test -s "frontend/build/$file" || { echo "::error::Missing frontend/build/$file"; exit 1; }
           done
+          grep -RqF 'https://aims-aggregator.aims-aggregator.workers.dev' frontend/build/static/js || {
+            echo "::error::Frontend bundle is missing the production Worker API URL"
+            exit 1
+          }
 
       - name: Deploy to Cloudflare Pages
         if: github.event_name == 'push'
